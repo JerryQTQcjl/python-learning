@@ -54,5 +54,7 @@ if __name__ == "__main__":
     print(f"""[x * x for x in range(1, 11)]: {gl1}
 [x * x for x in range(1, 11) if x % 2 == 0]: {gl2}
 [x * y for x in range(1, 10) for y in range(10, 20)]: {gl3}
-[x if x % 2 == 0 else -x for x in range(10)]: {gl4}
-""")
+[x if x % 2 == 0 else -x for x in range(10)]: {gl4}""")
+
+    a, *rest, b = [1, 2, 3, 4]
+    print(f'a: {a}, rest: {rest}, b: {b}')

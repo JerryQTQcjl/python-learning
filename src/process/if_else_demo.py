@@ -9,3 +9,7 @@ if __name__ == "__main__":
         print("3")
     else:
         print("4")
+
+    # 类似 java 三元表达式，但是支持无返回值大表达式（更为强大）
+    print("2") if command == 2 else print("other")
+    print(2 if command == 2 else "other")

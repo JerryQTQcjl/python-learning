@@ -29,3 +29,8 @@ if __name__ == "__main__":
     print(d1.get('a'))
     print(d1.get('a', 123))
 
+    # 并集
+    x = {'a': 1, 'b': 2}
+    y = {'b': 3, 'c': 4}
+    z = {**x, **y}
+    print(f'z: {z}')

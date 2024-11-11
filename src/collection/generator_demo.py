@@ -17,6 +17,7 @@ def gen():
         count += 1
         print(f'gen: {count}')
         yield count
+        print("111")
 
 if __name__ == "__main__":
     # 把生成式列表的[]改为()，就创建了一个generator
