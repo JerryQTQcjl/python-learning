@@ -42,3 +42,6 @@ if __name__ == "__main__":
 
     print(f'isinstance(g1, Iterable): {isinstance(g1, Iterable)}, isinstance(g2, Iterator): {isinstance(g2, Iterator)}')
     sleep(10)
+
+
+

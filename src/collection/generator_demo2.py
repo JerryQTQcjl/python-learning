@@ -27,6 +27,6 @@ print(next(gen))  # 输出: 1
 print(next(gen))  # 输出: 2
 print(next(gen))  # 输出: inner None, 5
 print(gen.send("abc"))  # 输出: 6
-# print(next(gen))  # 输出: outer 3, 4
+print(next(gen))  # 输出: outer 3, 4
 print(next(gen))  # 输出: inner end, outer 3, 4
 print(next(gen))  # 输出: outer end, StopIteration

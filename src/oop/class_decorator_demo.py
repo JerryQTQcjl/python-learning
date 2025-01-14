@@ -46,13 +46,19 @@ class ClassForClassDecorator:
 
     def __call__(self, *args, **kwargs):
         print(f'ClassForClassDecorator.__call__ {self}, {args}, {kwargs}')
-        return self.cls(*args, **kwargs)
+        # return self.cls(*args, **kwargs)
+        return self
 
 def funcForClassDecorator(cls):
+    print(f'funcForClassDecorator, cls:{cls}')
     cls.teacher = 'MR.Li'
     return cls
 
-# @ClassForClassDecorator
+"""
+如果注解是一个类，那么会调用这个类的__init__方法，相当于实例化这个类，类型变成这个类的实例
+如果注解是一个方法，那么会调用这个方法，类型变成方法的返回值
+"""
+@ClassForClassDecorator
 # @funcForClassDecorator
 class Student(object):
 
@@ -62,7 +68,8 @@ class Student(object):
     def score(self):
         return self._score
 
-    @score.setter
+    # @score.setter
+    # @score是MyProperty的实例，所以@score.setter相当于调用MyProperty实例的setter方法，注意，这里是实例
     # @log()
     def score(self, value):
         if not isinstance(value, int):
@@ -72,10 +79,13 @@ class Student(object):
         self._score = value
 
 if __name__ == "__main__":
-    s = Student()
-    print(type(Student))
-    s.score = 60
-    print(s.score)
-    # print(s.teacher)
+    # s = Student()
+    # print(f'type(Student): {type(Student)}')
+    # s.score = 60
+    # print(f's.score: {s.score}')
+    # print(f's.teacher: {s.teacher}')
     # s.score = 9999
+    s = Student()
+    print(f'type(Student): {type(s)}')
+    # s()
     pass
