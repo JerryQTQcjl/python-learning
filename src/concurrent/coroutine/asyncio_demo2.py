@@ -7,6 +7,8 @@ __date__ = "2024/11/11 00:18"
 
 
 import asyncio
+from typing import Coroutine
+
 
 async def wget(host):
     print(f"wget {host}...")
@@ -29,15 +31,19 @@ async def wget(host):
     await asyncio.sleep(1)
     print(f"Done {host}.")
 
+
 async def main():
     # await asyncio.gather(wget("www.sina.com.cn"), wget("www.sohu.com"), wget("www.163.com"))
     t1 = wget("www.sina.com.cn")
     t2 = wget("www.sohu.com")
     t3 = wget("www.163.com")
     print("Waiting for tasks to finish...")
+    # yield from 后面可接 可迭代对象，也可接future对象/协程对象；
+    # await 后面必须要接 future对象/协程对象
     await t1
     await t2
     await t3
-    
 
+
+print(isinstance(asyncio.open_connection("www.163.com", 80), Coroutine))
 asyncio.run(main())

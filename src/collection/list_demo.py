@@ -16,6 +16,7 @@ if __name__ == "__main__":
     l1.append(2)
     l1.append(6)
     l2.insert(4, 6)
+    l1.extend(l2)
     print(f'l1: {l1}')
     print(f'l2: {l2}')
 
